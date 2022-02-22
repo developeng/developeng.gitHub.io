@@ -24,7 +24,7 @@
 <meta name="description" content="创建公开库1.注册Trunk$pod trunk me">
 <meta property="og:type" content="article">
 <meta property="og:title" content="组件化：Cocoapods 创建自己的公开库、私有库">
-<meta property="og:url" content="https://developeng.com/2022/02/02/2022-02-02%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/index.html">
+<meta property="og:url" content="https://developeng.com/2022/02/02/iOS%E5%BC%80%E5%8F%91-2022-02-02-%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/index.html">
 <meta property="og:site_name" content="developeng的博客">
 <meta property="og:description" content="创建公开库1.注册Trunk$pod trunk me">
 <meta property="og:locale" content="zh_CN">
@@ -48,11 +48,11 @@
 <meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEBfedb82d2c9422e83d9ca0a976f3ad783?method=download&shareKey=ac4d537a1f2ec114d27a309d0ea7076f">
 
 
-<link rel="canonical" href="https://developeng.com/2022/02/02/2022-02-02%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/">
+<link rel="canonical" href="https://developeng.com/2022/02/02/iOS%E5%BC%80%E5%8F%91-2022-02-02-%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://developeng.com/2022/02/02/2022-02-02%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/","path":"2022/02/02/2022-02-02组件化：Cocoapods-创建自己的公开库、私有库/","title":"组件化：Cocoapods 创建自己的公开库、私有库"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://developeng.com/2022/02/02/iOS%E5%BC%80%E5%8F%91-2022-02-02-%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/","path":"2022/02/02/iOS开发-2022-02-02-组件化：Cocoapods-创建自己的公开库、私有库/","title":"组件化：Cocoapods 创建自己的公开库、私有库"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>组件化：Cocoapods 创建自己的公开库、私有库 | developeng的博客</title>
@@ -101,9 +101,9 @@
 <nav class="site-nav">
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">1</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">4</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">2</span></a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
   </ul>
 </nav>
@@ -150,18 +150,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -208,7 +208,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/02/02/2022-02-02%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/02/02/iOS%E5%BC%80%E5%8F%91-2022-02-02-%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -494,12 +494,12 @@ $pod trunk push DPPhotoBrowser.podspec
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/01/28/2022-01-28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="Mac 下使用github + hexo 搭建个人博客">
+                <a href="/2022/01/28/%E7%8E%AF%E5%A2%83-2022.01.28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="Mac 下使用github + hexo 搭建个人博客">
                   <i class="fa fa-chevron-left"></i> Mac 下使用github + hexo 搭建个人博客
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/02/03/2022-02-03Mac%E9%85%8D%E7%BD%AEjenkins%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85ipa%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%92%B2%E5%85%AC%E8%8B%B1/" rel="next" title="Mac配置jenkins自动打包ipa并上传蒲公英">
+                <a href="/2022/02/03/%E7%8E%AF%E5%A2%83-2022.02.03-Mac%E9%85%8D%E7%BD%AEjenkins%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85ipa%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%92%B2%E5%85%AC%E8%8B%B1/" rel="next" title="Mac配置jenkins自动打包ipa并上传蒲公英">
                   Mac配置jenkins自动打包ipa并上传蒲公英 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>

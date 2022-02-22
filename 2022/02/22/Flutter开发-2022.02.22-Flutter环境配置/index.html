@@ -21,25 +21,53 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"developeng.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="这么好的年龄，我居然是个胖子">
-<meta property="og:type" content="website">
-<meta property="og:title" content="developeng的博客">
-<meta property="og:url" content="https://developeng.com/index.html">
+<meta name="description" content="一 ：简介 Windows下Flutter环境配置 Mac下Flutter环境配置  二. Windows下Flutter环境配置1、配置环境变量(1). 打开 计算机 -&gt; 属性 -&gt; 高级系统设置 -&gt; 环境变量，打开环境变量设置框； (2). 在用户变量下，选择 新建环境变量， 添加下面两个环境变量: 变量名 -&gt;  值 FLUTTER_STORAGE_BASE_UR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter环境配置">
+<meta property="og:url" content="https://developeng.com/2022/02/22/Flutter%E5%BC%80%E5%8F%91-2022.02.22-Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="developeng的博客">
-<meta property="og:description" content="这么好的年龄，我居然是个胖子">
+<meta property="og:description" content="一 ：简介 Windows下Flutter环境配置 Mac下Flutter环境配置  二. Windows下Flutter环境配置1、配置环境变量(1). 打开 计算机 -&gt; 属性 -&gt; 高级系统设置 -&gt; 环境变量，打开环境变量设置框； (2). 在用户变量下，选择 新建环境变量， 添加下面两个环境变量: 变量名 -&gt;  值 FLUTTER_STORAGE_BASE_UR">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBf2d0972722a04d5e7662091e194e5e96?method=download&shareKey=a5d8187c0704770676eb44f3970f87d1">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB875b55ae5212aecfb288ba1dd468342e?method=download&shareKey=62558cd6a6ad5113488138649719476d">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB8ec65930fe2f195418b80afda69eb670?method=download&shareKey=a226ddd59f170b9316174d3716839b98">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBe00de48daaff743bdb3064087898a69b?method=download&shareKey=083247b1370c5c0750ecb26f8fe5a9bb">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB36185640f4148ea3e87b1a5c647de0f6?method=download&shareKey=6b5dc1ec528adab6d5ceea8b8789bb74">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBad6a13492b72ee527bd3211e63a5dd6a?method=download&shareKey=0179c93ffea4b613accc6a3d8a37ef26">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB84c05cceb072de1798d5f1bd9e3054ed?method=download&shareKey=ec73b5d75e9cae96cf7705bd63d7007c">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBd2b5d4d33ddba65820a93b32b68696fb?method=download&shareKey=9dcb1707e9163668fe3dae8116d03877">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB9bc47824005073377a45b6b86e815265?method=download&shareKey=030270f177d5f46cfa103f993ac70fe1">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB53e21fe9317579f4eb6581c582f6f605?method=download&shareKey=0200f59e810f00ad2096a02a3171ce91">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB2f8141fdb68bd30ede71e41aa5aed7fd?method=download&shareKey=82c45924fa9707793f23b8ef2c0db591">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB8af47aac576238914c6224b4d51b8c22?method=download&shareKey=037bc7dcf86719302cb412c11494eae1">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBc007c4b661edb2592db6bdea9f95aac2?method=download&shareKey=bd2bc9aba0d63cae73501082b3346716">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBd93de144328d7a50819b5fab5fb2dd06?method=download&shareKey=f2c33f651f1e09fb0081f69e11fe3fef">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB6dabcc3712deb0386ca0987c8d3c7964?method=download&shareKey=bd68a720b25fb628bad84dc0fa55e9d0">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB1419ce58fc53aa8f0266e468955987f4?method=download&shareKey=8eb29a4708f6bc5d9aa2f74b3dffc61d">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB757b9514abbd88a965a5c2e5110c74a6?method=download&shareKey=328bf6d8043493458b565252ac74511e">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB8b87411f1c7c019f055333de8952818a?method=download&shareKey=c16e29b1523a125593d4b451c1bf987a">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB511cd8074226e5895867ccb6e07da9d4?method=download&shareKey=7081686ead0fb667e15a453693af6707">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB8c5b634bf70a1c88b9bc2c63df818844?method=download&shareKey=fe8194c46867e84560aa5e5ef48c3e61">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB24688de61df59c08aa9c7d6a95937c98?method=download&shareKey=d149fdc25797b0bc0c895e184d160552">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBf19fa0035bdbc1bfba2ac6e871acdc29?method=download&shareKey=a2fedb5493cfdc42918f574244ad9fe1">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBf8098408a2299a6172323e1e78d4878b?method=download&shareKey=107435998c3c6ac2033591d1ef0b1497">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBe7e5442230826222302ff24d17054367?method=download&shareKey=6f4003f4d8954d5fa7beacf6420ad992">
+<meta property="article:published_time" content="2022-02-22T05:29:29.000Z">
+<meta property="article:modified_time" content="2022-02-22T09:02:42.161Z">
 <meta property="article:author" content="developeng">
+<meta property="article:tag" content="Flutter">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEBf2d0972722a04d5e7662091e194e5e96?method=download&shareKey=a5d8187c0704770676eb44f3970f87d1">
 
 
-<link rel="canonical" href="https://developeng.com/">
+<link rel="canonical" href="https://developeng.com/2022/02/22/Flutter%E5%BC%80%E5%8F%91-2022.02.22-Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://developeng.com/2022/02/22/Flutter%E5%BC%80%E5%8F%91-2022.02.22-Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/","path":"2022/02/22/Flutter开发-2022.02.22-Flutter环境配置/","title":"Flutter环境配置"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>developeng的博客</title>
+<title>Flutter环境配置 | developeng的博客</title>
   
 
 
@@ -68,7 +96,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">developeng的博客</h1>
+      <p class="site-title">developeng的博客</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">雷峰塔下盼轮回，不及你浅笑一枚。西湖细柳缘纷飞，可悲可叹独自醉。</p>
@@ -106,7 +134,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -119,6 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-%EF%BC%9A%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一 ：简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-Windows%E4%B8%8BFlutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">二. Windows下Flutter环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.</span> <span class="nav-text">1、配置环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81Flutter-SDK-%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">2、Flutter SDK 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85Java%E7%8E%AF%E5%A2%83"><span class="nav-number">2.2.1.</span> <span class="nav-text">(1). 安装Java环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEgit"><span class="nav-number">2.2.2.</span> <span class="nav-text">(1). 安装和配置git</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%B8%8B%E8%BD%BDAndroid-Studio-%E5%B9%B6%E9%85%8D%E7%BD%AE%E5%A5%BDAndroid%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">2.2.3.</span> <span class="nav-text">(2)下载Android Studio 并配置好Android的开发环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85-Flutter"><span class="nav-number">2.2.4.</span> <span class="nav-text">(3)下载和安装 Flutter</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#lt-1-gt-%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">&lt;1&gt;下载</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#lt-2-gt-%E9%85%8D%E7%BD%AEFlutter-SDK%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">&lt;2&gt;. 配置Flutter SDK的环境变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">检查Flutter环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%94%99%E8%AF%AF1"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">错误1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%94%99%E8%AF%AF2"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">错误2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.4.</span> <span class="nav-text">4、新建项目</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89-Mac%E4%B8%8BFlutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">三. Mac下Flutter环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%B8%8B%E8%BD%BDflutterSDK"><span class="nav-number">3.1.</span> <span class="nav-text">1.下载flutterSDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="nav-number">3.2.</span> <span class="nav-text">2.镜像配置：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%BF%90%E8%A1%8C%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3"><span class="nav-number">3.3.</span> <span class="nav-text">3. 运行错误解决</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-Some-Android-licenses-not-accepted"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.1 Some Android licenses not accepted</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-CocoaPods-not-installed"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.2 CocoaPods not installed</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-Flutter-amp-Dart-plugin-not-installed"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3 Flutter&amp;Dart plugin not installed</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-VS-Code-Flutter-extension-not-installed"><span class="nav-number">3.3.4.</span> <span class="nav-text">3.4 VS Code Flutter extension not installed</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,16 +209,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/02/22/Flutter%E5%BC%80%E5%8F%91-2022.02.22-Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -202,9 +232,9 @@
       <meta itemprop="name" content="developeng的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/22/Flutter%E5%BC%80%E5%8F%91-2022.02.22-Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Flutter环境配置</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Flutter环境配置
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -241,7 +271,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="一-：简介"><a href="#一-：简介" class="headerlink" title="一 ：简介"></a>一 ：简介</h3><ol>
+        <h3 id="一-：简介"><a href="#一-：简介" class="headerlink" title="一 ：简介"></a>一 ：简介</h3><ol>
 <li>Windows下Flutter环境配置</li>
 <li>Mac下Flutter环境配置</li>
 </ol>
@@ -424,7 +454,6 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 <p>点击：Preferences—&gt;Languages&amp;Frameworks—&gt;Dart&amp;Flutter，配置Dart和Flutter路径</p>
 <h5 id="3-4-VS-Code-Flutter-extension-not-installed"><a href="#3-4-VS-Code-Flutter-extension-not-installed" class="headerlink" title="3.4 VS Code Flutter extension not installed"></a>3.4 VS Code Flutter extension not installed</h5><p>打开VS Code，搜索<code>flutter</code>插件安装</p>
 
-      
     </div>
 
     
@@ -432,259 +461,25 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+          <div class="post-tags">
+              <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+          </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/02/03/%E7%8E%AF%E5%A2%83-2022.02.03-Mac%E9%85%8D%E7%BD%AEjenkins%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85ipa%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%92%B2%E5%85%AC%E8%8B%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="developeng">
-      <meta itemprop="description" content="这么好的年龄，我居然是个胖子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="developeng的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/03/%E7%8E%AF%E5%A2%83-2022.02.03-Mac%E9%85%8D%E7%BD%AEjenkins%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85ipa%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%92%B2%E5%85%AC%E8%8B%B1/" class="post-title-link" itemprop="url">Mac配置jenkins自动打包ipa并上传蒲公英</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-02-03 17:46:07 / 修改时间：17:48:40" itemprop="dateCreated datePublished" datetime="2022-02-03T17:46:07+08:00">2022-02-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%8E%AF%E5%A2%83/" itemprop="url" rel="index"><span itemprop="name">环境</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="一-安装jenkins"><a href="#一-安装jenkins" class="headerlink" title="一. 安装jenkins"></a>一. 安装jenkins</h3><p>使用brew 命令行安装jenkins</p>
-<pre><code>//安装jenkins
-brew install jenkins
-</code></pre>
-<p>扩展：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/03/%E7%8E%AF%E5%A2%83-2022.02.03-Mac%E9%85%8D%E7%BD%AEjenkins%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85ipa%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%92%B2%E5%85%AC%E8%8B%B1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/02/02/iOS%E5%BC%80%E5%8F%91-2022-02-02-%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="developeng">
-      <meta itemprop="description" content="这么好的年龄，我居然是个胖子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="developeng的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/02/iOS%E5%BC%80%E5%8F%91-2022-02-02-%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/" class="post-title-link" itemprop="url">组件化：Cocoapods 创建自己的公开库、私有库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-02-02 13:29:29 / 修改时间：13:31:18" itemprop="dateCreated datePublished" datetime="2022-02-02T13:29:29+08:00">2022-02-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%8E%AF%E5%A2%83/" itemprop="url" rel="index"><span itemprop="name">环境</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="创建公开库"><a href="#创建公开库" class="headerlink" title="创建公开库"></a>创建公开库</h2><h3 id="1-注册Trunk"><a href="#1-注册Trunk" class="headerlink" title="1.注册Trunk"></a>1.注册Trunk</h3><pre><code>$pod trunk me
-</code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/02/iOS%E5%BC%80%E5%8F%91-2022-02-02-%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/03/%E7%8E%AF%E5%A2%83-2022.02.03-Mac%E9%85%8D%E7%BD%AEjenkins%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85ipa%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%92%B2%E5%85%AC%E8%8B%B1/" rel="prev" title="Mac配置jenkins自动打包ipa并上传蒲公英">
+                  <i class="fa fa-chevron-left"></i> Mac配置jenkins自动打包ipa并上传蒲公英
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/01/28/%E7%8E%AF%E5%A2%83-2022.01.28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="developeng">
-      <meta itemprop="description" content="这么好的年龄，我居然是个胖子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="developeng的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/28/%E7%8E%AF%E5%A2%83-2022.01.28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Mac 下使用github + hexo 搭建个人博客</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-01-28 10:27:34 / 修改时间：10:35:52" itemprop="dateCreated datePublished" datetime="2022-01-28T10:27:34+08:00">2022-01-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%8E%AF%E5%A2%83/" itemprop="url" rel="index"><span itemprop="name">环境</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="一-环境安装"><a href="#一-环境安装" class="headerlink" title="一.环境安装"></a>一.环境安装</h3><p>1.安装homebrew（如果已安装可跳过）<br>官方地址：<a target="_blank" rel="noopener" href="https://brew.sh/">https://brew.sh</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/28/%E7%8E%AF%E5%A2%83-2022.01.28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+            <div class="post-nav-item">
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          </div>
     </footer>
   </article>
 </div>
+
 
 
 
