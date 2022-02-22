@@ -215,7 +215,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-02-22 13:29:29 / 修改时间：17:02:42" itemprop="dateCreated datePublished" datetime="2022-02-22T13:29:29+08:00">2022-02-22</time>
+      <time title="创建时间：2022-02-22 13:29:29 / 修改时间：17:03:43" itemprop="dateCreated datePublished" datetime="2022-02-22T13:29:29+08:00">2022-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,185 +245,14 @@
 <li>Windows下Flutter环境配置</li>
 <li>Mac下Flutter环境配置</li>
 </ol>
-<h3 id="二-Windows下Flutter环境配置"><a href="#二-Windows下Flutter环境配置" class="headerlink" title="二. Windows下Flutter环境配置"></a>二. Windows下Flutter环境配置</h3><h4 id="1、配置环境变量"><a href="#1、配置环境变量" class="headerlink" title="1、配置环境变量"></a>1、配置环境变量</h4><p>(1). 打开 计算机 -&gt; 属性 -&gt; 高级系统设置 -&gt; 环境变量，打开环境变量设置框；</p>
-<p>(2). 在用户变量下，选择 新建环境变量， 添加下面两个环境变量:</p>
-<p>变量名 -&gt;  值</p>
-<pre><code>FLUTTER_STORAGE_BASE_URL   -&gt;   https://storage.flutter-io.cn
-
-PUB_HOSTED_URL    -&gt;      https://pub.flutter-io.cn
-</code></pre>
-<h4 id="2、Flutter-SDK-安装"><a href="#2、Flutter-SDK-安装" class="headerlink" title="2、Flutter SDK 安装"></a>2、Flutter SDK 安装</h4><h5 id="1-安装Java环境"><a href="#1-安装Java环境" class="headerlink" title="(1). 安装Java环境"></a>(1). 安装Java环境</h5><p>百度搜索Java sdk，打开官方网站下载。</p>
-<p>网址： <a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
-<h5 id="1-安装和配置git"><a href="#1-安装和配置git" class="headerlink" title="(1). 安装和配置git"></a>(1). 安装和配置git</h5><p>Flutter需要使用git来获取，所以要先安装git。如果已经安装，跳过此步骤</p>
-<p>网址：<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBf2d0972722a04d5e7662091e194e5e96?method=download&shareKey=a5d8187c0704770676eb44f3970f87d1" alt="image"></p>
-<p>很多人通过官网在下载git的时候发现网速只有几十K，淘宝有一个镜像的网站 可以提供下载<br><a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a><br>（rc为候选版）</p>
-<p>下载完成后点击安装（保存路径修改， 其他默认选择即可）<br>安装完成后，在系统环境变量Path中查看是否存在git的cmd目录，没有则添加（添加为：安装目录\Git\cmd）</p>
-<h5 id="2-下载Android-Studio-并配置好Android的开发环境"><a href="#2-下载Android-Studio-并配置好Android的开发环境" class="headerlink" title="(2)下载Android Studio 并配置好Android的开发环境"></a>(2)下载Android Studio 并配置好Android的开发环境</h5><p>网址：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/">https://developer.android.google.cn/studio/</a></p>
-<p>下载并安装（保存路径修改， 其他默认选择即可）</p>
-<p>安装完成运行Android Studio 会弹出如下图：<br><img src="https://note.youdao.com/yws/api/personal/file/WEB875b55ae5212aecfb288ba1dd468342e?method=download&shareKey=62558cd6a6ad5113488138649719476d" alt="image"></p>
-<p>这里如果没有安装过，就选择”Do not import settings“,否则选择第一项并指定路径。点击OK即可</p>
-<p>启动会弹出如图：</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB8ec65930fe2f195418b80afda69eb670?method=download&shareKey=a226ddd59f170b9316174d3716839b98" alt="image"><br>这是设置Http代理的，不需要的话直接点Cancel即可。</p>
-<p>接着进入安装向导界面如图：</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBe00de48daaff743bdb3064087898a69b?method=download&shareKey=083247b1370c5c0750ecb26f8fe5a9bb" alt="image"></p>
-<p>点Next进行设置，设置好 进行安装</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB36185640f4148ea3e87b1a5c647de0f6?method=download&shareKey=6b5dc1ec528adab6d5ceea8b8789bb74" alt="image"></p>
-<p>下载完成后，点Finish,然后退出即可</p>
-<p>【接下来此步骤看情况设置</p>
-<p>1.在Android Studio 安装完成后，增加一个环境变量（新建系统变量）</p>
-<p>变量名 -&gt;  值</p>
-<pre><code>变量名：ANDROID_HOME 
-变量值：E:\Program Files (x86)\AndroidSDK （更新成你真正的SDK位置）
-</code></pre>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBad6a13492b72ee527bd3211e63a5dd6a?method=download&shareKey=0179c93ffea4b613accc6a3d8a37ef26" alt="image"></p>
-<p>如果不知道AndroidSDK 的位置可以，可以在我的电脑中搜索“platform-tools”了，“platform-tools”是Android SDK必不可少的文件，找到它就找到了Android SDK路径。</p>
-<p>2.再Path下，加入下面这段</p>
-<pre><code>%ANDROID_HOME%\tools;
-%ANDROID_HOME%\platform-tools;
-</code></pre>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB84c05cceb072de1798d5f1bd9e3054ed?method=download&shareKey=ec73b5d75e9cae96cf7705bd63d7007c" alt="image"></p>
-<p>然后重启电脑，否则后面可能会报找不到Android SDK的错误。</p>
-<p>这个AndroidSDK文件夹最好不要放到C盘，因为安卓系统的镜像、以后会用到的各种组件都会存放到这个文件夹，随着开发量的增加，这个文件夹会越来越大，C盘可能吃不消。</p>
-<p>如果是无脑安装Android Studio和Android SDK的，Android SDK默认是存放到C盘一个隐藏文件夹下的目录（C:\Users\Administrator\AppData\Local\Android\sdk），就像上图一样，把Android SDK文件夹剪切到C盘以外的其他盘，然后在这里改成新的路径即可。</p>
-<p>】</p>
-<h5 id="3-下载和安装-Flutter"><a href="#3-下载和安装-Flutter" class="headerlink" title="(3)下载和安装 Flutter"></a>(3)下载和安装 Flutter</h5><h6 id="lt-1-gt-下载"><a href="#lt-1-gt-下载" class="headerlink" title="&lt;1&gt;下载"></a>&lt;1&gt;下载</h6><p>官网地址： <a target="_blank" rel="noopener" href="https://flutter.io/">https://flutter.io/</a></p>
-<p>1)下载方式一</p>
-<p>Flutter 是GitHub上的，我们可以直接执行git命令下载<br>在需要下载的文件夹下，右击选择 Git Bash Here<br>在弹出的终端内输入</p>
-<pre><code>git clone https://github.com/flutter/flutter.git
-</code></pre>
-<p>接下来就是等待了，此处下载可能用时比较长<br>如下图所示即下载完成：<br><img src="https://note.youdao.com/yws/api/personal/file/WEBd2b5d4d33ddba65820a93b32b68696fb?method=download&shareKey=9dcb1707e9163668fe3dae8116d03877" alt="image"></p>
-<p>==注意：Flutter的下载路径要全英文并且路径不能有空格！==</p>
-<p>2）下载方式二</p>
-<p>也可以用下面方法下载Flutter</p>
-<p>在文件夹下右击选择git GUI Here,如图：<br><img src="https://note.youdao.com/yws/api/personal/file/WEB9bc47824005073377a45b6b86e815265?method=download&shareKey=030270f177d5f46cfa103f993ac70fe1" alt="image"></p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB53e21fe9317579f4eb6581c582f6f605?method=download&shareKey=0200f59e810f00ad2096a02a3171ce91" alt="image"></p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB2f8141fdb68bd30ede71e41aa5aed7fd?method=download&shareKey=82c45924fa9707793f23b8ef2c0db591" alt="image"></p>
-<p>设置好 Source (<a target="_blank" rel="noopener" href="https://github.com/flutter/flutter.git%EF%BC%89%E5%92%8C">https://github.com/flutter/flutter.git）和</a> Target 目录。点击 Clone 开始获取</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB8af47aac576238914c6224b4d51b8c22?method=download&shareKey=037bc7dcf86719302cb412c11494eae1" alt="image"></p>
-<p>等待下载完成。</p>
-<h6 id="lt-2-gt-配置Flutter-SDK的环境变量"><a href="#lt-2-gt-配置Flutter-SDK的环境变量" class="headerlink" title="&lt;2&gt;. 配置Flutter SDK的环境变量"></a>&lt;2&gt;. 配置Flutter SDK的环境变量</h6><p>在Windows系统环境变量中，将Flutter的路径加入。完成后如图所示。<br>在 计算机 -&gt; 属性 -&gt; 高级系统设置 -&gt; 环境变量 中，打开环境变量设置框，在 用户变量或系统变量 下，选择Path，将Flutter Sdk的路径(D:\Flutter\FlutterSDK\flutter\bin)添加在Path中<br><img src="https://note.youdao.com/yws/api/personal/file/WEBc007c4b661edb2592db6bdea9f95aac2?method=download&shareKey=bd2bc9aba0d63cae73501082b3346716" alt="image"></p>
-<h4 id="检查Flutter环境配置"><a href="#检查Flutter环境配置" class="headerlink" title="检查Flutter环境配置"></a>检查Flutter环境配置</h4><p>运行</p>
-<pre><code>$flutter doctor
-</code></pre>
-<p>出现如下：<br><img src="https://note.youdao.com/yws/api/personal/file/WEBd93de144328d7a50819b5fab5fb2dd06?method=download&shareKey=f2c33f651f1e09fb0081f69e11fe3fef" alt="image"></p>
-<p>说明Flutter已经安装成功</p>
-<p>但是出现错误</p>
-<h6 id="错误1"><a href="#错误1" class="headerlink" title="错误1"></a>错误1</h6><p><img src="https://note.youdao.com/yws/api/personal/file/WEB6dabcc3712deb0386ca0987c8d3c7964?method=download&shareKey=bd68a720b25fb628bad84dc0fa55e9d0" alt="image"></p>
-<p>首先解决 ❌Unable tolocate Android devices 错误</p>
-<p>此问题因为挪动Android SDK导致的，<br>解决方法是，增加环境变量：ANDROID_HOME，==见（3）上面扩展==</p>
-<h6 id="错误2"><a href="#错误2" class="headerlink" title="错误2"></a>错误2</h6><p>接着报错<br><img src="https://note.youdao.com/yws/api/personal/file/WEB1419ce58fc53aa8f0266e468955987f4?method=download&shareKey=8eb29a4708f6bc5d9aa2f74b3dffc61d" alt="image"></p>
-<p>❌Android license status unknow</p>
-<p>百度到的解决办法是：</p>
-<p>然后按照文章提示执行：</p>
-<pre><code>flutter doctor --android-licenses
-</code></pre>
-<p>执行报错 ==Android sdkmanager tool not found==</p>
-<p>将 android-sdk/emulator/bin 目录拷贝至  android-sdk/tools/，再次执行 flutter doctor ，错误解决。</p>
-<p>但是发现并没有tools文件夹，Android sdkmanager 不存在</p>
-<p>原因：<br>这台电脑是全新的环境，下载的是最新版本的Android Studio 3.6.1。在我这个Android Studio版本中，默认情况下是不会安装Android SDK Tools的。居然是 Obsolete ，废弃的</p>
-<p>解决方法：<br><img src="https://note.youdao.com/yws/api/personal/file/WEB757b9514abbd88a965a5c2e5110c74a6?method=download&shareKey=328bf6d8043493458b565252ac74511e" alt="image"></p>
-<p>点击图中的Configure 然后点击下拉框中的 SDK manager 进入设置界面</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB8b87411f1c7c019f055333de8952818a?method=download&shareKey=c16e29b1523a125593d4b451c1bf987a" alt="image"></p>
-<p>点击ok,同意协议，进行下载即可</p>
-<p>完成后运行flutter doctor<br><img src="https://note.youdao.com/yws/api/personal/file/WEB511cd8074226e5895867ccb6e07da9d4?method=download&shareKey=7081686ead0fb667e15a453693af6707" alt="image"></p>
-<p>运行</p>
-<pre><code> flutter doctor --android-licenses
- 
- 然后一路按 y 即可。
- 
-</code></pre>
-<p>结果：<img src="https://note.youdao.com/yws/api/personal/file/WEB8c5b634bf70a1c88b9bc2c63df818844?method=download&shareKey=fe8194c46867e84560aa5e5ef48c3e61" alt="image"><br>成功解决一个。继续</p>
-<p>接下来解决Flutter plugin not installed 问题</p>
-<p>打开Android Studio 主界面，点击图中的Configure 然后点击下拉框中的 Plugins 进入</p>
-<p>搜索两个配置Dart 和Flutter,若未安装进行安装<br><img src="https://note.youdao.com/yws/api/personal/file/WEB24688de61df59c08aa9c7d6a95937c98?method=download&shareKey=d149fdc25797b0bc0c895e184d160552" alt="image"><br><img src="https://note.youdao.com/yws/api/personal/file/WEBf19fa0035bdbc1bfba2ac6e871acdc29?method=download&shareKey=a2fedb5493cfdc42918f574244ad9fe1" alt="image"></p>
-<p>下载完成后再次执行 flutter doctor</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBf8098408a2299a6172323e1e78d4878b?method=download&shareKey=107435998c3c6ac2033591d1ef0b1497" alt="image"></p>
-<p>最后一个警告是没有连接设备：连接一个设备即可。</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBe7e5442230826222302ff24d17054367?method=download&shareKey=6f4003f4d8954d5fa7beacf6420ad992" alt="image"></p>
-<p>配置结束。</p>
-<h4 id="4、新建项目"><a href="#4、新建项目" class="headerlink" title="4、新建项目"></a>4、新建项目</h4><p>此时可以创建项目了：</p>
-<p>创建项目后，运行会发现<br>flutter 卡在Running Gradle task ‘assembleDebug’…</p>
-<p>因为Android项目会用到Gradle<br>因为Gradle的Maven仓库在国外, 可以使用阿里云的镜像地址</p>
-<p>1.* 修改项目中<code>android/build.gradle</code>文件</p>
-<pre><code>buildscript &#123;
-    repositories &#123;
-        //修改的地方
-        //google()
-        //jcenter()
-        maven &#123; url &#39;https://maven.aliyun.com/repository/google&#39; &#125;
-        maven &#123; url &#39;https://maven.aliyun.com/repository/jcenter&#39; &#125;
-        maven &#123; url &#39;http://maven.aliyun.com/nexus/content/groups/public&#39; &#125;
-&#125;
-
-    dependencies &#123;
-        classpath &#39;com.android.tools.build:gradle:3.2.1&#39;
-    &#125;
-&#125;
-
-allprojects &#123;
-    repositories &#123;
-        //修改的地方
-        //google()
-        //jcenter()
-        maven &#123; url &#39;https://maven.aliyun.com/repository/google&#39; &#125;
-        maven &#123; url &#39;https://maven.aliyun.com/repository/jcenter&#39; &#125;
-        maven &#123; url &#39;http://maven.aliyun.com/nexus/content/groups/public&#39; &#125;
-    &#125;
-&#125;
-</code></pre>
-<p>2.* 修改Flutter的配置文件, 该文件在<code>Flutter安装目录/packages/flutter_tools/gradle/flutter.gradle</code>，找到文件，打开修改</p>
-<pre><code>buildscript &#123;
-    repositories &#123;
-        //修改的地方
-        //google()
-        //jcenter()
-        maven &#123; url &#39;https://maven.aliyun.com/repository/google&#39; &#125;
-        maven &#123; url &#39;https://maven.aliyun.com/repository/jcenter&#39; &#125;
-        maven &#123; url &#39;http://maven.aliyun.com/nexus/content/groups/public&#39; &#125;
-    &#125;
-    dependencies &#123;
-        classpath &#39;com.android.tools.build:gradle:3.2.1&#39;
-    &#125;
-&#125;
-</code></pre>
-<p>修改后运行项目，就正常了。</p>
-<h3 id="三-Mac下Flutter环境配置"><a href="#三-Mac下Flutter环境配置" class="headerlink" title="三. Mac下Flutter环境配置"></a>三. Mac下Flutter环境配置</h3><h4 id="1-下载flutterSDK"><a href="#1-下载flutterSDK" class="headerlink" title="1.下载flutterSDK"></a>1.下载<a target="_blank" rel="noopener" href="https://docs.flutter.dev/development/tools/sdk/releases?tab=macos#macos">flutterSDK</a></h4><p>下载稳定包：Stable channel (macOS)</p>
-<p>下载下来饿文件夹自己选择位置存放，我是存放在了用户根目录下</p>
-<pre><code>cd
-open .
-</code></pre>
-<h4 id="2-镜像配置："><a href="#2-镜像配置：" class="headerlink" title="2.镜像配置："></a>2.镜像配置：</h4><p>添加flutter相关工具到path中<br>1.修改 .bash_profile文件</p>
-<pre><code>cd
-open .bash_profile
-</code></pre>
-<p>编辑 .bash_profile文件</p>
-<pre><code>export PATH=（flutter安装包的路径）/bin:$PATH
-export PUB_HOSTED_URL=https://pub.flutter-io.cn
-export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-
-
-[[ -s &quot;$HOME/.profile&quot; ]] &amp;&amp; source &quot;$HOME/.profile&quot; # Load the default .profile
-
-[[ -s &quot;$HOME/.rvm/scripts/rvm&quot; ]] &amp;&amp; source &quot;$HOME/.rvm/scripts/rvm&quot; # Load RVM into a shell session *as a function*
-
-[[ -r &quot;/usr/local/etc/profile.d/bash_completion.sh&quot; ]] &amp;&amp; . &quot;/usr/local/etc/profile.d/bash_completion.sh&quot;
-~
-</code></pre>
-<p>添加后执行</p>
-<pre><code>source ~/.bash_profile
-</code></pre>
-<p>运行 </p>
-<pre><code>flutter doctor
-</code></pre>
-<h4 id="3-运行错误解决"><a href="#3-运行错误解决" class="headerlink" title="3. 运行错误解决"></a>3. 运行错误解决</h4><h5 id="3-1-Some-Android-licenses-not-accepted"><a href="#3-1-Some-Android-licenses-not-accepted" class="headerlink" title="3.1 Some Android licenses not accepted"></a>3.1 Some Android licenses not accepted</h5><p>在终端输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor --android-licenses</span><br></pre></td></tr></table></figure>
-<h5 id="3-2-CocoaPods-not-installed"><a href="#3-2-CocoaPods-not-installed" class="headerlink" title="3.2 CocoaPods not installed"></a>3.2 <strong>CocoaPods not installed</strong></h5><p>在终端输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install cocoapods</span><br></pre></td></tr></table></figure>
-<h5 id="3-3-Flutter-amp-Dart-plugin-not-installed"><a href="#3-3-Flutter-amp-Dart-plugin-not-installed" class="headerlink" title="3.3 Flutter&amp;Dart plugin not installed"></a>3.3 Flutter&amp;Dart plugin not installed</h5><p>打开android studio开发之工具，依次打开：android studio—&gt;Preferences—&gt;Plugins，输入<code>Flutter</code>安装</p>
-<p>点击：Preferences—&gt;Languages&amp;Frameworks—&gt;Dart&amp;Flutter，配置Dart和Flutter路径</p>
-<h5 id="3-4-VS-Code-Flutter-extension-not-installed"><a href="#3-4-VS-Code-Flutter-extension-not-installed" class="headerlink" title="3.4 VS Code Flutter extension not installed"></a>3.4 VS Code Flutter extension not installed</h5><p>打开VS Code，搜索<code>flutter</code>插件安装</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/22/Flutter%E5%BC%80%E5%8F%91-2022.02.22-Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -472,9 +301,15 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-02-03 17:46:07 / 修改时间：17:48:40" itemprop="dateCreated datePublished" datetime="2022-02-03T17:46:07+08:00">2022-02-03</time>
+      <time title="创建时间：2022-02-03 17:46:07" itemprop="dateCreated datePublished" datetime="2022-02-03T17:46:07+08:00">2022-02-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-02-22 17:17:53" itemprop="dateModified" datetime="2022-02-22T17:17:53+08:00">2022-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -496,11 +331,7 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="一-安装jenkins"><a href="#一-安装jenkins" class="headerlink" title="一. 安装jenkins"></a>一. 安装jenkins</h3><p>使用brew 命令行安装jenkins</p>
-<pre><code>//安装jenkins
-brew install jenkins
-</code></pre>
-<p>扩展：</p>
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>1.安装jenkins<br>2.Jenkins 的启动与关闭<br>3.配置Jenkins<br>4.插件安装</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/03/%E7%8E%AF%E5%A2%83-2022.02.03-Mac%E9%85%8D%E7%BD%AEjenkins%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85ipa%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%92%B2%E5%85%AC%E8%8B%B1/#more" rel="contents">
@@ -557,9 +388,15 @@ brew install jenkins
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-02-02 13:29:29 / 修改时间：13:31:18" itemprop="dateCreated datePublished" datetime="2022-02-02T13:29:29+08:00">2022-02-02</time>
+      <time title="创建时间：2022-02-02 13:29:29" itemprop="dateCreated datePublished" datetime="2022-02-02T13:29:29+08:00">2022-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-02-22 17:16:19" itemprop="dateModified" datetime="2022-02-22T17:16:19+08:00">2022-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -581,8 +418,7 @@ brew install jenkins
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="创建公开库"><a href="#创建公开库" class="headerlink" title="创建公开库"></a>创建公开库</h2><h3 id="1-注册Trunk"><a href="#1-注册Trunk" class="headerlink" title="1.注册Trunk"></a>1.注册Trunk</h3><pre><code>$pod trunk me
-</code></pre>
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>1.创建公开库<br>2.创建私有库（私有库不需要注册Trunk）<br>3.更新维护</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/02/iOS%E5%BC%80%E5%8F%91-2022-02-02-%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/#more" rel="contents">
@@ -639,9 +475,15 @@ brew install jenkins
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-01-28 10:27:34 / 修改时间：10:35:52" itemprop="dateCreated datePublished" datetime="2022-01-28T10:27:34+08:00">2022-01-28</time>
+      <time title="创建时间：2022-01-28 10:27:34" itemprop="dateCreated datePublished" datetime="2022-01-28T10:27:34+08:00">2022-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-02-22 17:18:52" itemprop="dateModified" datetime="2022-02-22T17:18:52+08:00">2022-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -663,7 +505,7 @@ brew install jenkins
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="一-环境安装"><a href="#一-环境安装" class="headerlink" title="一.环境安装"></a>一.环境安装</h3><p>1.安装homebrew（如果已安装可跳过）<br>官方地址：<a target="_blank" rel="noopener" href="https://brew.sh/">https://brew.sh</a></p>
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>1.环境安装<br>2.配置github<br>3.更换主题（此处以next为例）<br>4.写文章</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/01/28/%E7%8E%AF%E5%A2%83-2022.01.28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
