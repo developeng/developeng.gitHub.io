@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"developeng.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Universal Links（通用链接）具体配置流程 iOS9.0之前，一直使用URL Schemes 技术来从外部打开app，但是如果没有安装app，就会有“无法打开页面”的弹窗提示，首次打开还要权限提示 iOS9之后就可使用Universal Links技术进行跳转页面，这种体验更加完美，当用户的点击该链接，只要手机中安装了支持该链接的APP就会直接进入到APP中。如果没有安装APP则会跳转">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发-Universal Link 通用链接配置">
+<meta property="og:url" content="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-Universal%20Link%20%E9%80%9A%E7%94%A8%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="developeng的博客">
+<meta property="og:description" content="Universal Links（通用链接）具体配置流程 iOS9.0之前，一直使用URL Schemes 技术来从外部打开app，但是如果没有安装app，就会有“无法打开页面”的弹窗提示，首次打开还要权限提示 iOS9之后就可使用Universal Links技术进行跳转页面，这种体验更加完美，当用户的点击该链接，只要手机中安装了支持该链接的APP就会直接进入到APP中。如果没有安装APP则会跳转">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB93e9aabd41239f34e9e5e8185f508b17?method=download&shareKey=f9360a503deba8661395bcf6770e5d6e">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB098971212f5decdc7be4e984b8a98870?method=download&shareKey=b9a7de60980b5fdfc1f9bfe95bd26d01">
+<meta property="article:published_time" content="2022-05-31T02:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-01T02:04:07.700Z">
+<meta property="article:author" content="developeng">
+<meta property="article:tag" content="OC">
+<meta property="article:tag" content="Swift">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB93e9aabd41239f34e9e5e8185f508b17?method=download&shareKey=f9360a503deba8661395bcf6770e5d6e">
+
+
+<link rel="canonical" href="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-Universal%20Link%20%E9%80%9A%E7%94%A8%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-Universal%20Link%20%E9%80%9A%E7%94%A8%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE/","path":"2022/05/31/iOS开发-2022-05-31-Universal Link 通用链接配置/","title":"iOS开发-Universal Link 通用链接配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>iOS开发-Universal Link 通用链接配置 | developeng的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">developeng的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">雷峰塔下盼轮回，不及你浅笑一枚。西湖细柳缘纷飞，可悲可叹独自醉。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%9C%A8%E5%BC%80%E5%8F%91%E8%80%85%E4%B8%AD%E5%BF%83%E9%85%8D%E7%BD%AEAssociated-Domains"><span class="nav-number">1.</span> <span class="nav-text">1.在开发者中心配置Associated Domains</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AEapple-app-site-association-%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">2.配置apple-app-site-association 文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">3.上传文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Xcode%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">4.Xcode配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E9%AA%8C%E8%AF%81Universal-Links%E6%98%AF%E5%90%A6%E7%94%9F%E6%95%88"><span class="nav-number">5.</span> <span class="nav-text">5.验证Universal Links是否生效</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="developeng"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">developeng</p>
+  <div class="site-description" itemprop="description">这么好的年龄，我居然是个胖子</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/developeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;developeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:developeng@163.com" title="E-Mail → mailto:developeng@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-Universal%20Link%20%E9%80%9A%E7%94%A8%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="developeng">
+      <meta itemprop="description" content="这么好的年龄，我居然是个胖子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="developeng的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS开发-Universal Link 通用链接配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-31 10:00:00" itemprop="dateCreated datePublished" datetime="2022-05-31T10:00:00+08:00">2022-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-01 10:04:07" itemprop="dateModified" datetime="2022-06-01T10:04:07+08:00">2022-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Universal Links（通用链接）具体配置流程</p>
+<p>iOS9.0之前，一直使用URL Schemes 技术来从外部打开app，但是如果没有安装app，就会有“无法打开页面”的弹窗提示，首次打开还要权限提示</p>
+<p>iOS9之后就可使用Universal Links技术进行跳转页面，这种体验更加完美，当用户的点击该链接，只要手机中安装了支持该链接的APP就会直接进入到APP中。如果没有安装APP则会跳转到Safari浏览器中，展示H5页面。对用户来说则是一个无缝跳转的过程。</p>
+<span id="more"></span>
+
+<p>Universal Links 配置流程</p>
+<h5 id="1-在开发者中心配置Associated-Domains"><a href="#1-在开发者中心配置Associated-Domains" class="headerlink" title="1.在开发者中心配置Associated Domains"></a>1.在开发者中心配置Associated Domains</h5><p><img src="https://note.youdao.com/yws/api/personal/file/WEB93e9aabd41239f34e9e5e8185f508b17?method=download&shareKey=f9360a503deba8661395bcf6770e5d6e" alt="image"></p>
+<p>如图开启 Associated Domains 功能<br>记录1，2之后配置文件有用</p>
+<h5 id="2-配置apple-app-site-association-文件"><a href="#2-配置apple-app-site-association-文件" class="headerlink" title="2.配置apple-app-site-association 文件"></a>2.配置apple-app-site-association 文件</h5><p>创建一个内容为json格式的无后缀文件，文件名为apple-app-site-association，⚠️注意：文件无后缀！！！</p>
+<pre><code>&#123;
+    &quot;applinks&quot;:&#123;
+        &quot;apps&quot;:[],
+        &quot;details&quot;:[
+            &#123;
+                &quot;appID&quot;:&quot;9JA89QQLNQ.com.apple.wwdc&quot;,
+                &quot;paths&quot;: [&quot;*&quot;]
+            &#125;
+        ]
+    &#125;
+&#125;
+</code></pre>
+<p>appID：组成方式是TeamID.BundleID。TeamID和BundleID就是第一步中的1和2。<br>paths：设定你的app支持的路径列表，只有这些指定路径的链接，才能被app所处理。*的写法代表了可识别域名下所有链接。</p>
+<p>如果该域名下有多个app，paths就不能只有一个*，这样会造成app跳转错乱,配置如下</p>
+<pre><code>&#123;
+    &quot;applinks&quot;:&#123;
+        &quot;apps&quot;:[],
+        &quot;details&quot;:[
+            &#123;
+                &quot;appID&quot;:&quot;9JA89QQLNQ.com.apple.app1&quot;,
+                &quot;paths&quot;: [&quot;/b/*&quot;]
+            &#125;,
+            &#123;
+                &quot;appID&quot;:&quot;9JA89QQLNQ.com.apple.app2&quot;,
+                &quot;paths&quot;: [&quot;/c/*&quot;]
+            &#125;
+        ]
+    &#125;
+&#125;
+</code></pre>
+<h5 id="3-上传文件"><a href="#3-上传文件" class="headerlink" title="3.上传文件"></a>3.上传文件</h5><p>  配置好文件后，将该文件交给后台开发人员上传到域名所对应的根目录或者.well-known目录下，这是为了苹果能够获取你上传的文件，上传完成后测试一下访问路径是否能够获取到。<br>  在你的浏览器中输入文件链接<br>  https://配置域名/.well-known/apple-app-site-association 或<br>  https://配置域名/apple-app-site-association<br>  能够正常访问到</p>
+<h5 id="4-Xcode配置"><a href="#4-Xcode配置" class="headerlink" title="4.Xcode配置"></a>4.Xcode配置</h5><p>  在Domains中填入你想支持的域名，可以多个，必须以applink:开头<br>  例如 applinks:<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a><br>  <img src="https://note.youdao.com/yws/api/personal/file/WEB098971212f5decdc7be4e984b8a98870?method=download&shareKey=b9a7de60980b5fdfc1f9bfe95bd26d01" alt="image"></p>
+<h5 id="5-验证Universal-Links是否生效"><a href="#5-验证Universal-Links是否生效" class="headerlink" title="5.验证Universal Links是否生效"></a>5.验证Universal Links是否生效</h5><p>  1.苹果官网验证apple-app-site-association 是否生效</p>
+<pre><code>https://search.developer.apple.com/appsearch-validation-tool/
+</code></pre>
+<p>  2.浏览器输入</p>
+<pre><code>https://app-site-association.cdn-apple.com/a/v1/你的域名
+</code></pre>
+<p>  例如：<a target="_blank" rel="noopener" href="https://app-site-association.cdn-apple.com/a/v1/www.baidu.com">https://app-site-association.cdn-apple.com/a/v1/www.baidu.com</a><br>  成功的话返回结果即为文件内容</p>
+<p>  3.终端输入 </p>
+<pre><code>curl -v https://app-site-association.cdn-apple.com/a/v1/域名
+</code></pre>
+<p>  （如果不成功，可以查看报错信息）</p>
+<p>  4.以上没有问题的话，说明配置成功。如果不成功，后台上传文件，或者服务器访问权限导致，可找后端开发人员联调。</p>
+<p>  （我在这个地方访问不成功是因为我们的服务器禁止了搜索引擎的爬虫机器人扫描我们的环境，导致苹果一直访问不到我们上传的文件，让后端取消了禁止就一切正常了）</p>
+<p>  可验证：<br>  在备忘录中输入<br>  https://域名/ 点击可直接打开APP</p>
+<p>  https://域名/b/<br>  https://域名/c/<br>  可打开对应的app</p>
+<p>  此链接不可报404，否着可能打不开（待验证）</p>
+<p>  参考链接：<br>  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6e8ee6b37739">https://www.jianshu.com/p/6e8ee6b37739</a><br>  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/73e7da4e8163">https://www.jianshu.com/p/73e7da4e8163</a><br>  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f1c97d0d0d22">https://www.jianshu.com/p/f1c97d0d0d22</a><br>  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4c96b54ef8d1">https://www.jianshu.com/p/4c96b54ef8d1</a><br>  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/49bae73b8e72">https://www.jianshu.com/p/49bae73b8e72</a><br>  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0ead88409212/">https://www.jianshu.com/p/0ead88409212/</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OC/" rel="tag"># OC</a>
+              <a href="/tags/Swift/" rel="tag"># Swift</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/" rel="prev" title="iOS开发-支付宝支付集成">
+                  <i class="fa fa-chevron-left"></i> iOS开发-支付宝支付集成
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/" rel="next" title="iOS开发-微信支付集成">
+                  iOS开发-微信支付集成 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">developeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

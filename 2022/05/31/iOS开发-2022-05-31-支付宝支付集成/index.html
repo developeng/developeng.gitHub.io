@@ -21,28 +21,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"developeng.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="简介1.环境安装2.配置github3.更换主题（此处以next为例）4.写文章">
+<meta name="description" content="支付宝支付集成接入准备先与支付宝签约，获得商户ID（partner）和账号ID（seller）https:&#x2F;&#x2F;opendocs.alipay.com&#x2F;open&#x2F;204&#x2F;105297 接入文档：https:&#x2F;&#x2F;opendocs.alipay.com&#x2F;open&#x2F;204&#x2F;105295">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac 下使用github + hexo 搭建个人博客">
-<meta property="og:url" content="https://developeng.com/2022/01/28/%E7%8E%AF%E5%A2%83-2022.01.28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="iOS开发-支付宝支付集成">
+<meta property="og:url" content="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/index.html">
 <meta property="og:site_name" content="developeng的博客">
-<meta property="og:description" content="简介1.环境安装2.配置github3.更换主题（此处以next为例）4.写文章">
+<meta property="og:description" content="支付宝支付集成接入准备先与支付宝签约，获得商户ID（partner）和账号ID（seller）https:&#x2F;&#x2F;opendocs.alipay.com&#x2F;open&#x2F;204&#x2F;105297 接入文档：https:&#x2F;&#x2F;opendocs.alipay.com&#x2F;open&#x2F;204&#x2F;105295">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-28T02:27:34.000Z">
-<meta property="article:modified_time" content="2022-02-22T09:18:52.429Z">
+<meta property="article:published_time" content="2022-05-31T01:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-01T02:04:11.276Z">
 <meta property="article:author" content="developeng">
-<meta property="article:tag" content="记录">
+<meta property="article:tag" content="OC">
+<meta property="article:tag" content="Swift">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://developeng.com/2022/01/28/%E7%8E%AF%E5%A2%83-2022.01.28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://developeng.com/2022/01/28/%E7%8E%AF%E5%A2%83-2022.01.28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/","path":"2022/01/28/环境-2022.01.28-Mac下使用github-hexo搭建个人博客/","title":"Mac 下使用github + hexo 搭建个人博客"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/","path":"2022/05/31/iOS开发-2022-05-31-支付宝支付集成/","title":"iOS开发-支付宝支付集成"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Mac 下使用github + hexo 搭建个人博客 | developeng的博客</title>
+<title>iOS开发-支付宝支付集成 | developeng的博客</title>
   
 
 
@@ -122,7 +123,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">一.环境安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-github"><span class="nav-number">3.</span> <span class="nav-text">二.github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89-%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98%EF%BC%88%E6%AD%A4%E5%A4%84%E4%BB%A5next%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">三.更换主题（此处以next为例）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B-%E5%86%99%E6%96%87%E7%AB%A0"><span class="nav-number">5.</span> <span class="nav-text">四.写文章</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">支付宝支付集成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A5%E5%85%A5%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">接入准备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E9%80%9A%E8%BF%87-CocoaPods-%E5%AF%BC%E5%85%A5%EF%BC%8CPodfile%E6%96%87%E4%BB%B6%E4%B8%AD%E5%A2%9E%E5%8A%A0"><span class="nav-number">1.2.</span> <span class="nav-text">1.通过 CocoaPods 导入，Podfile文件中增加</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%A2%9E%E5%8A%A0%E5%A4%B4%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">2.增加头文件引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E7%BB%84%E8%A3%85%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF%EF%BC%88%E7%BB%84%E8%A3%85%E8%BF%87%E7%A8%8B%E6%94%BE%E5%9C%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%A4%84%E7%90%86%EF%BC%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%80%9A%E8%BF%87%E6%8E%A5%E5%8F%A3%E8%8E%B7%E5%8F%96%E5%88%B0%E7%BB%84%E8%A3%85%E5%A5%BD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">3.组装请求信息（组装过程放在服务端处理，客户端通过接口获取到组装好的字符串）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E9%85%8D%E7%BD%AE%E8%BF%94%E5%9B%9E-url-%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">4.配置返回 url 处理方法</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -195,7 +196,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/01/28/%E7%8E%AF%E5%A2%83-2022.01.28-Mac%E4%B8%8B%E4%BD%BF%E7%94%A8github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -208,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Mac 下使用github + hexo 搭建个人博客
+          iOS开发-支付宝支付集成
         </h1>
 
         <div class="post-meta-container">
@@ -219,14 +220,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-01-28 10:27:34" itemprop="dateCreated datePublished" datetime="2022-01-28T10:27:34+08:00">2022-01-28</time>
+      <time title="创建时间：2022-05-31 09:00:00" itemprop="dateCreated datePublished" datetime="2022-05-31T09:00:00+08:00">2022-05-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-02-22 17:18:52" itemprop="dateModified" datetime="2022-02-22T17:18:52+08:00">2022-02-22</time>
+      <time title="修改时间：2022-06-01 10:04:11" itemprop="dateModified" datetime="2022-06-01T10:04:11+08:00">2022-06-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -234,7 +235,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%8E%AF%E5%A2%83/" itemprop="url" rel="index"><span itemprop="name">环境</span></a>
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
         </span>
     </span>
 
@@ -248,184 +249,60 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>1.环境安装<br>2.配置github<br>3.更换主题（此处以next为例）<br>4.写文章</p>
+        <h4 id="支付宝支付集成"><a href="#支付宝支付集成" class="headerlink" title="支付宝支付集成"></a>支付宝支付集成</h4><h5 id="接入准备"><a href="#接入准备" class="headerlink" title="接入准备"></a>接入准备</h5><p>先与支付宝签约，获得商户ID（partner）和账号ID（seller）<br><a target="_blank" rel="noopener" href="https://opendocs.alipay.com/open/204/105297">https://opendocs.alipay.com/open/204/105297</a></p>
+<p>接入文档：<br><a target="_blank" rel="noopener" href="https://opendocs.alipay.com/open/204/105295">https://opendocs.alipay.com/open/204/105295</a></p>
 <span id="more"></span>
 
-<h3 id="一-环境安装"><a href="#一-环境安装" class="headerlink" title="一.环境安装"></a>一.环境安装</h3><p>1.安装homebrew（如果已安装可跳过）<br>官方地址：<a target="_blank" rel="noopener" href="https://brew.sh/">https://brew.sh</a></p>
-<pre><code>//查看版本
-brew -v
-//Homebrew 3.1.6-18-gfca0fb1
-//Homebrew/homebrew-core (git revision 960d90b94c; last commit 2021-05-11)
-//Homebrew/homebrew-cask (git revision a4dd4a1908; last commit 2021-05-11)
+<h5 id="1-通过-CocoaPods-导入，Podfile文件中增加"><a href="#1-通过-CocoaPods-导入，Podfile文件中增加" class="headerlink" title="1.通过 CocoaPods 导入，Podfile文件中增加"></a>1.通过 CocoaPods 导入，Podfile文件中增加</h5><pre><code>  pod &#39;AlipaySDK-iOS&#39;
 </code></pre>
-<p>2.通过homebrew 安装 node.js</p>
-<pre><code>brew install node
+<p>然后终端执行 </p>
+<pre><code>pod install --verbose --no-repo-update
+  
 </code></pre>
-<p>3.检查node </p>
-<pre><code>node -v
-//v16.2.0
+<h5 id="2-增加头文件引用"><a href="#2-增加头文件引用" class="headerlink" title="2.增加头文件引用"></a>2.增加头文件引用</h5><pre><code># import &lt;AlipaySDK/AlipaySDK.h&gt;
 </code></pre>
-<p>4.检查npm是否安装成功</p>
-<pre><code>npm -v
-//7.13.0
+<h5 id="3-组装请求信息（组装过程放在服务端处理，客户端通过接口获取到组装好的字符串）"><a href="#3-组装请求信息（组装过程放在服务端处理，客户端通过接口获取到组装好的字符串）" class="headerlink" title="3.组装请求信息（组装过程放在服务端处理，客户端通过接口获取到组装好的字符串）"></a>3.组装请求信息（组装过程放在服务端处理，客户端通过接口获取到组装好的字符串）</h5><p>OC:</p>
+<pre><code>// NOTE: 调用支付结果开始支付
+[[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) &#123;
+    NSLog(@&quot;reslut = %@&quot;,resultDic);
+&#125;];
 </code></pre>
-<p>5.homebrew 安装git</p>
-<pre><code>brew install git
+<p>swift:</p>
+<pre><code>   // NOTE: 调用支付结果开始支付
+    AlipaySDK.defaultService().payOrder(orderString, fromScheme: appScheme, callback: &#123; (resp) in
+        print(resp as Any)
+    &#125;)
 </code></pre>
-<p>6.检查git 安装情况</p>
-<pre><code>git version
-//git version 2.32.0 (Apple Git-132)
+<h5 id="4-配置返回-url-处理方法"><a href="#4-配置返回-url-处理方法" class="headerlink" title="4.配置返回 url 处理方法"></a>4.配置返回 url 处理方法</h5><p>AppDelegate</p>
+<pre><code>//        9000  订单支付成功
+//        8000  正在处理中
+//        4000  订单支付失败
+//        6001  用户中途取消
+//        6002  网络连接出错
 </code></pre>
-<p>7.使用npm 安装hexo</p>
-<pre><code>sudo npm install -g hexo-cli
+<p>OC:</p>
+<pre><code>- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary&lt;NSString*, id&gt; *)options
+&#123;
+    if ([url.host isEqualToString:@&quot;safepay&quot;]) &#123;
+    //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) &#123;
+            NSLog(@&quot;result = %@&quot;,resultDic);
+        &#125;];
+    &#125;
+    return YES;
+&#125;
 </code></pre>
-<p>8.安装完成后，创建文件夹</p>
-<pre><code>cd ～/Desktop
-mkdir Blog
-cd Blog
-</code></pre>
-<p>9.在文件夹下初始化hexo</p>
-<pre><code>hexo init
-</code></pre>
-<p>10.初始化成功后，可预览</p>
-<pre><code>hexo s
-hexo s -p 4001 //端口4000如果被占用，可以指定端口号
-</code></pre>
-<p>此时 hexo 已经处理完成，可本地预览</p>
-<h3 id="二-github"><a href="#二-github" class="headerlink" title="二.github"></a>二.github</h3><p>1.github账号申请并创建仓库命名为：用户名.github.io</p>
-<p>2.将Blog初始化为git仓库并推送到github上</p>
-<h3 id="三-更换主题（此处以next为例）"><a href="#三-更换主题（此处以next为例）" class="headerlink" title="三.更换主题（此处以next为例）"></a>三.更换主题（此处以next为例）</h3><p>1.<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo官方</a>可以自由选择自己喜欢的主题<br>在Bolg目录文件下终端输入</p>
-<pre><code>$ git clone https://github.com/iissnan/hexo-theme-next.git themes/next
+<p>swift:</p>
+<pre><code>    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -&gt; Bool &#123;
+   if url.host == &quot;safepay&quot; &#123;
 
-或者官网直接下载，修改名称为next
+     AlipaySDK.defaultService().processOrder(withPaymentResult: url) &#123; result in
+        let returnCode:String = result?[&quot;resultStatus&quot;] as! String
+        &#125;
+        return true;
+    &#125;
 </code></pre>
-<p>将主题拷贝到Blog下theme文件下，此文件下存放所有使用的主题，最后由站点配置文件(根目录下_config.yml文件)决定使用哪个主题。</p>
-<p>2.<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/getting-started.html">主题设置</a>：<br>    1&gt;打开 Blog/_config.yml 文件</p>
-<pre><code>    # Site
-    #网站标题
-    title: XXX的博客
-    #网站副标题
-    subtitle: &#39;雷峰塔下盼轮回，不及你浅笑一枚。 西湖细柳缘纷飞,可悲可叹独自醉。&#39;
-    #描述，介绍
-    description: &#39;主要记录平时学习或者解决一些问题时的过程或是心得体会什么的东西&#39;
-    # 网站关键字
-    keywords:
-    # 博主姓名
-    author: XXX
-    # 语言：zh-CN 是简体中文
-    language:
-        - zh-CN
-    # 时区
-    timezone: Asia/Shanghai
-
-    # URL
-    ## Set your site url here. For example, if you use GitHub Page, set url as &#39;https://username.github.io/project&#39;
-    #网站域名
-    url: https://XXX.com
-
-    # Deployment (部署)
-    ## Docs: https://hexo.io/docs/one-command-deployment
-    deploy:
-      type: git
-      repo: git@github.com:XXX/XXX.github.io.git
-      branch: main #分支
-      
-</code></pre>
-<p>2&gt;其他设置：<br>打开 Blog/themes/next/_config.yml</p>
-<pre><code>#主题颜色
-darkmode: true
-
-#风格
-# Schemes
-#scheme: Muse
-#scheme: Mist
-#scheme: Pisces
-scheme: Gemini
-
-#左侧边栏按钮
-menu:
-  home: / || fa fa-home
-  about: /about/ || fa fa-user
-  tags: /tags/ || fa fa-tags
-  categories: /categories/ || fa fa-th
-  archives: /archives/ || fa fa-archive
-  # schedule: /schedule/ || fa fa-calendar
-  # sitemap: /sitemap.xml || fa fa-sitemap
-  # commonweal: /404/ || fa fa-heartbeat
-</code></pre>
-<p>3.点击menu的时候出现 Cannot GET /categories/ 的时候<br>是因为没有初始化categories的子目录，控制台输入</p>
-<pre><code>hexo new page &quot;categories&quot;
-hexo new page &quot;about&quot;
-hexo new page &quot;tags&quot;
-</code></pre>
-<p>这样就是在source文件初始化这些目录，并生成index文件，就可以正常使用了，其他同理。</p>
-<p>打开各个目录下/index.md 文件修改：</p>
-<p>categories</p>
-<pre><code>---
-layout: page
-title: 分类
-date: 2022-01-27 22:33:06
-tags:
-type: &quot;categories&quot;
-comments: false
----
-</code></pre>
-<p>tags</p>
-<pre><code>---
-layout: page
-title: 标签
-date: 2022-01-27 22:32:57
-tags:
-type: &quot;tags&quot;
-comments: false
----
-</code></pre>
-<p>about</p>
-<pre><code>---
-layout: page
-title: 关于
-date: 2022-01-27 22:32:57
-tags:
-type: &quot;about&quot;
-comments: false
----
-</code></pre>
-<p>处理完成后</p>
-<pre><code> $hexo s
- $hexo g
- $hexo d
-</code></pre>
-<p>此时浏览器中输入 用户名.github.io 可看效果</p>
-<h3 id="四-写文章"><a href="#四-写文章" class="headerlink" title="四.写文章"></a>四.写文章</h3><p>1.新建一篇文章</p>
-<pre><code>$hexo new &quot;文件名&quot;
-</code></pre>
-<p>文章内容编辑：</p>
-<pre><code>---
-title: 微信小程序开发之——Dialog弹窗
-categories:
-  - iOS
-  - Flutter
-  - Swift
-tags:
-  - Swift
-abbrlink: c2e9cdea
-date: 2021-11-26 15:06:32
----
-文章内增加折叠按钮：
-&lt;!--more--&gt;
-</code></pre>
-<p>2.启动本地服务器，用于预览主题</p>
-<pre><code>$hexo server(简写：hexo s)
-</code></pre>
-<p>3.生成网站静态文件到默认设置的 public 文件夹</p>
-<pre><code>$hexo generate(简写：hexo g)
-</code></pre>
-<p>4.自动生成网站静态文件，并部署到设定的仓库</p>
-<pre><code>$hexo deploy(简写：hexo d)
-</code></pre>
-<p>清除缓存文件 db.json 和已生成的静态文件 public</p>
-<pre><code>$hexo clean
-</code></pre>
+<p>支付宝集成就结束了。</p>
 
     </div>
 
@@ -435,17 +312,21 @@ date: 2021-11-26 15:06:32
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"># 记录</a>
+              <a href="/tags/OC/" rel="tag"># OC</a>
+              <a href="/tags/Swift/" rel="tag"># Swift</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/02/22/Flutter%E5%BC%80%E5%8F%91-2022.02.22-Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="prev" title="Flutter环境配置">
+                  <i class="fa fa-chevron-left"></i> Flutter环境配置
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/02/02/iOS%E5%BC%80%E5%8F%91-2022-02-02-%E7%BB%84%E4%BB%B6%E5%8C%96%EF%BC%9ACocoapods-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E5%BC%80%E5%BA%93%E3%80%81%E7%A7%81%E6%9C%89%E5%BA%93/" rel="next" title="组件化：Cocoapods 创建自己的公开库、私有库">
-                  组件化：Cocoapods 创建自己的公开库、私有库 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-Universal%20Link%20%E9%80%9A%E7%94%A8%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE/" rel="next" title="iOS开发-Universal Link 通用链接配置">
+                  iOS开发-Universal Link 通用链接配置 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

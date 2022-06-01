@@ -86,8 +86,8 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
   </ul>
 </nav>
@@ -133,7 +133,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -144,7 +144,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -181,6 +181,272 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="developeng">
+      <meta itemprop="description" content="这么好的年龄，我居然是个胖子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="developeng的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/" class="post-title-link" itemprop="url">iOS开发-微信支付集成</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-31 11:00:00" itemprop="dateCreated datePublished" datetime="2022-05-31T11:00:00+08:00">2022-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-01 10:04:14" itemprop="dateModified" datetime="2022-06-01T10:04:14+08:00">2022-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="微信支付集成"><a href="#微信支付集成" class="headerlink" title="微信支付集成"></a>微信支付集成</h4><h5 id="接入准备"><a href="#接入准备" class="headerlink" title="接入准备"></a>接入准备</h5><p>登录微信开放平台 <a target="_blank" rel="noopener" href="https://open.weixin.qq.com/">https://open.weixin.qq.com</a><br>注册/登录，然后创建应用，申请支付功能</p>
+<p>申请流程<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Pay/Vendor_Service_Center.html">https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Pay/Vendor_Service_Center.html</a></p>
+<p>微信接入指南<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html">https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-Universal%20Link%20%E9%80%9A%E7%94%A8%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="developeng">
+      <meta itemprop="description" content="这么好的年龄，我居然是个胖子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="developeng的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-Universal%20Link%20%E9%80%9A%E7%94%A8%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">iOS开发-Universal Link 通用链接配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-31 10:00:00" itemprop="dateCreated datePublished" datetime="2022-05-31T10:00:00+08:00">2022-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-01 10:04:07" itemprop="dateModified" datetime="2022-06-01T10:04:07+08:00">2022-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Universal Links（通用链接）具体配置流程</p>
+<p>iOS9.0之前，一直使用URL Schemes 技术来从外部打开app，但是如果没有安装app，就会有“无法打开页面”的弹窗提示，首次打开还要权限提示</p>
+<p>iOS9之后就可使用Universal Links技术进行跳转页面，这种体验更加完美，当用户的点击该链接，只要手机中安装了支持该链接的APP就会直接进入到APP中。如果没有安装APP则会跳转到Safari浏览器中，展示H5页面。对用户来说则是一个无缝跳转的过程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-Universal%20Link%20%E9%80%9A%E7%94%A8%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="developeng">
+      <meta itemprop="description" content="这么好的年龄，我居然是个胖子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="developeng的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/" class="post-title-link" itemprop="url">iOS开发-支付宝支付集成</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-31 09:00:00" itemprop="dateCreated datePublished" datetime="2022-05-31T09:00:00+08:00">2022-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-01 10:04:11" itemprop="dateModified" datetime="2022-06-01T10:04:11+08:00">2022-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="支付宝支付集成"><a href="#支付宝支付集成" class="headerlink" title="支付宝支付集成"></a>支付宝支付集成</h4><h5 id="接入准备"><a href="#接入准备" class="headerlink" title="接入准备"></a>接入准备</h5><p>先与支付宝签约，获得商户ID（partner）和账号ID（seller）<br><a target="_blank" rel="noopener" href="https://opendocs.alipay.com/open/204/105297">https://opendocs.alipay.com/open/204/105297</a></p>
+<p>接入文档：<br><a target="_blank" rel="noopener" href="https://opendocs.alipay.com/open/204/105295">https://opendocs.alipay.com/open/204/105295</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"developeng.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="微信支付集成接入准备登录微信开放平台 https:&#x2F;&#x2F;open.weixin.qq.com注册&#x2F;登录，然后创建应用，申请支付功能 申请流程https:&#x2F;&#x2F;developers.weixin.qq.com&#x2F;doc&#x2F;oplatform&#x2F;Mobile_App&#x2F;WeChat_Pay&#x2F;Vendor_Service_Center.html 微信接入指南https:&#x2F;&#x2F;developers.weixin.qq.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发-微信支付集成">
+<meta property="og:url" content="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/index.html">
+<meta property="og:site_name" content="developeng的博客">
+<meta property="og:description" content="微信支付集成接入准备登录微信开放平台 https:&#x2F;&#x2F;open.weixin.qq.com注册&#x2F;登录，然后创建应用，申请支付功能 申请流程https:&#x2F;&#x2F;developers.weixin.qq.com&#x2F;doc&#x2F;oplatform&#x2F;Mobile_App&#x2F;WeChat_Pay&#x2F;Vendor_Service_Center.html 微信接入指南https:&#x2F;&#x2F;developers.weixin.qq.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB8c33f24f2256d71c9507eee57aa5a916?method=download&shareKey=09e23d93f43fc92158ed7dc285738ac4">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB28f072be0a26f155e56a6a64def9e055?method=download&shareKey=82939cae9d38bb51ee886199fbfb4b88">
+<meta property="article:published_time" content="2022-05-31T03:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-01T02:04:14.413Z">
+<meta property="article:author" content="developeng">
+<meta property="article:tag" content="OC">
+<meta property="article:tag" content="Swift">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB8c33f24f2256d71c9507eee57aa5a916?method=download&shareKey=09e23d93f43fc92158ed7dc285738ac4">
+
+
+<link rel="canonical" href="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/","path":"2022/05/31/iOS开发-2022-05-31-微信支付集成/","title":"iOS开发-微信支付集成"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>iOS开发-微信支付集成 | developeng的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">developeng的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">雷峰塔下盼轮回，不及你浅笑一枚。西湖细柳缘纷飞，可悲可叹独自醉。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">微信支付集成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A5%E5%85%A5%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">接入准备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E9%80%9A%E8%BF%87-CocoaPods-%E5%AF%BC%E5%85%A5%EF%BC%8CPodfile%E6%96%87%E4%BB%B6%E4%B8%AD%E5%A2%9E%E5%8A%A0"><span class="nav-number">1.2.</span> <span class="nav-text">1.通过 CocoaPods 导入，Podfile文件中增加</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%A4%B4%E6%96%87%E4%BB%B6%E5%BC%95%E5%85%A5"><span class="nav-number">1.3.</span> <span class="nav-text">2.头文件引入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">3.配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-APP%E5%90%AF%E5%8A%A8%E5%90%8E%E4%BB%A3%E7%A0%81%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.5.</span> <span class="nav-text">3.APP启动后代码设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E7%BB%84%E8%A3%85%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF%EF%BC%88%E8%BF%996%E4%B8%AA%E5%8F%82%E6%95%B0%E5%85%A8%E9%83%A8%E7%94%B1%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E5%8D%B3%E5%8F%AF%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">4.组装请求信息（这6个参数全部由后端接口返回即可）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AE%E4%BF%A1%E5%9B%9E%E8%B0%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.7.</span> <span class="nav-text">微信回调配置</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="developeng"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">developeng</p>
+  <div class="site-description" itemprop="description">这么好的年龄，我居然是个胖子</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/developeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;developeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:developeng@163.com" title="E-Mail → mailto:developeng@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="developeng">
+      <meta itemprop="description" content="这么好的年龄，我居然是个胖子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="developeng的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS开发-微信支付集成
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-31 11:00:00" itemprop="dateCreated datePublished" datetime="2022-05-31T11:00:00+08:00">2022-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-01 10:04:14" itemprop="dateModified" datetime="2022-06-01T10:04:14+08:00">2022-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="微信支付集成"><a href="#微信支付集成" class="headerlink" title="微信支付集成"></a>微信支付集成</h4><h5 id="接入准备"><a href="#接入准备" class="headerlink" title="接入准备"></a>接入准备</h5><p>登录微信开放平台 <a target="_blank" rel="noopener" href="https://open.weixin.qq.com/">https://open.weixin.qq.com</a><br>注册/登录，然后创建应用，申请支付功能</p>
+<p>申请流程<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Pay/Vendor_Service_Center.html">https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Pay/Vendor_Service_Center.html</a></p>
+<p>微信接入指南<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html">https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html</a></p>
+<span id="more"></span>
+
+<h5 id="1-通过-CocoaPods-导入，Podfile文件中增加"><a href="#1-通过-CocoaPods-导入，Podfile文件中增加" class="headerlink" title="1.通过 CocoaPods 导入，Podfile文件中增加"></a>1.通过 CocoaPods 导入，Podfile文件中增加</h5><pre><code>  pod &#39;WechatOpenSDK&#39;
+</code></pre>
+<p>然后终端执行 </p>
+<pre><code>pod install --verbose --no-repo-update
+</code></pre>
+<h5 id="2-头文件引入"><a href="#2-头文件引入" class="headerlink" title="2.头文件引入"></a>2.头文件引入</h5><pre><code>#import &lt;AlipaySDK/AlipaySDK.h&gt;
+#import &lt;WXApi.h&gt;
+#import &lt;WXApiObject.h&gt;
+</code></pre>
+<h5 id="3-配置"><a href="#3-配置" class="headerlink" title="3.配置"></a>3.配置</h5><p>1.白名单</p>
+<pre><code>&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+&lt;array&gt;
+    &lt;string&gt;wechat&lt;/string&gt;
+    &lt;string&gt;weixin&lt;/string&gt;
+    &lt;string&gt;weixinULAPI&lt;/string&gt;
+&lt;/array&gt;
+</code></pre>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB8c33f24f2256d71c9507eee57aa5a916?method=download&shareKey=09e23d93f43fc92158ed7dc285738ac4" alt="image"></p>
+<ol start="2">
+<li>TAGETS-  info-  URL types 设置URL Schemes<br><img src="https://note.youdao.com/yws/api/personal/file/WEB28f072be0a26f155e56a6a64def9e055?method=download&shareKey=82939cae9d38bb51ee886199fbfb4b88" alt="image"></li>
+</ol>
+<p>3.配置Universal Link</p>
+<h5 id="3-APP启动后代码设置"><a href="#3-APP启动后代码设置" class="headerlink" title="3.APP启动后代码设置"></a>3.APP启动后代码设置</h5><p>1.向微信终端程序注册第三方应用。</p>
+<p>OC：</p>
+<pre><code>[WXApi registerApp:wxAppId universalLink:universalLink];
+</code></pre>
+<p>swift：</p>
+<pre><code> WXApi.registerApp(wxAppId, universalLink: universalLink)
+</code></pre>
+<h5 id="4-组装请求信息（这6个参数全部由后端接口返回即可）"><a href="#4-组装请求信息（这6个参数全部由后端接口返回即可）" class="headerlink" title="4.组装请求信息（这6个参数全部由后端接口返回即可）"></a>4.组装请求信息（这6个参数全部由后端接口返回即可）</h5><p>前后端appId要统一，否则调起会失败</p>
+<p>OC:</p>
+<pre><code>//调起微信支付
+PayReq* req             = [[PayReq alloc] init];
+req.partnerId           = @&quot;&quot;;
+req.prepayId            = @&quot;&quot;;
+req.nonceStr            = @&quot;&quot;;
+req.timeStamp           = 1602663569;
+req.package             = @&quot;Sign=WXPay&quot;;
+req.sign                = @&quot;&quot;;
+[WXApi sendReq:req completion:^(BOOL success) &#123;
+
+&#125;];
+</code></pre>
+<p>Swift:</p>
+<pre><code>    let payReq       = PayReq()
+    payReq.partnerId = &quot;&quot;
+    payReq.prepayId  =  &quot;&quot;
+    payReq.package   = &quot;Sign=WXPay&quot;
+    payReq.nonceStr  = &quot;&quot;
+    payReq.timeStamp = UInt32(timeStamp)!
+    payReq.sign      = &quot;&quot;
+    WXApi.send(payReq) &#123; success in
+        if success &#123;
+             debugPrint(&quot;微信成功调起&quot;)
+        &#125; else &#123;
+            debugPrint(&quot;微信调起异常&quot;)
+        &#125;
+    &#125;
+</code></pre>
+<p>以上就可以调起微信了，</p>
+<h5 id="微信回调配置"><a href="#微信回调配置" class="headerlink" title="微信回调配置"></a>微信回调配置</h5><p>1.回调代码处理<br>OC：</p>
+<pre><code>- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url &#123;
+    return  [WXApi handleOpenURL:url delegate:self];
+&#125;
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray&lt;id&lt;UIUserActivityRestoring&gt;&gt; * __nullable restorableObjects))restorationHandler
+&#123;
+    return [WXApi handleOpenUniversalLink:userActivity delegate:self];
+&#125;
+
+#pragma mark - WXApiDelegate
+- (void)onResp:(BaseResp *)resp&#123;
+//    resp.errCode （通过code判断状态）
+[[NSNotificationCenter defaultCenter] postNotificationName:@&quot;wxLogin&quot; object:resp];
+&#125;
+</code></pre>
+<p>Swift</p>
+<pre><code>func application(_ application: UIApplication, handleOpen url: URL) -&gt; Bool &#123;
+    return  WXApi.handleOpen(url, delegate: self)
+&#125;
+
+func application(_ application:UIApplication, continue userActivity:NSUserActivity, restorationHandler:@escaping([UIUserActivityRestoring]?) -&gt;Void) -&gt;Bool&#123;
+    return WXApi.handleOpenUniversalLink(userActivity, delegate: self)
+&#125;
+
+//WXApiDelegate 代理方法
+func onResp(_ resp: BaseResp) &#123;
+    if resp is PayResp &#123;
+        let response: PayResp? = resp as? PayResp
+        print(response?.errCode as Any)
+      /*
+           enum  WXErrCode &#123;
+           WXSuccess           = 0,    &lt; 成功
+           WXErrCodeCommon     = -1,  &lt; 普通错误类型
+           WXErrCodeUserCancel = -2,   &lt; 用户点击取消并返回
+           WXErrCodeSentFail   = -3,   &lt; 发送失败
+           WXErrCodeAuthDeny   = -4,   &lt; 授权失败
+           WXErrCodeUnsupport  = -5,   &lt; 微信不支持
+           &#125;;
+           */
+    &#125;
+    
+&#125;
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OC/" rel="tag"># OC</a>
+              <a href="/tags/Swift/" rel="tag"># Swift</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-Universal%20Link%20%E9%80%9A%E7%94%A8%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE/" rel="prev" title="iOS开发-Universal Link 通用链接配置">
+                  <i class="fa fa-chevron-left"></i> iOS开发-Universal Link 通用链接配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">developeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
