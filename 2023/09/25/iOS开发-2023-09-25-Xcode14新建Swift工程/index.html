@@ -21,29 +21,36 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"developeng.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="1.手机设置设置 -&gt; Safari浏览器 -&gt; 高级 -&gt; 开启web检查器  2.Mac设置Safari浏览器 -&gt; 偏好设置 -&gt; 高级 —&gt; 勾选“在菜单栏中显示“开发”菜单”  3.连接-调试1.用数据连接手机和电脑 2.打开iPhone手机上的网页 3.打开Mac的safari浏览器，选择开发 -&gt; 手机名称 -&gt; 选择正在调试的网页 即">
+<meta name="description" content="一.保留SceneDelegate （适用于iOS13以上）1.删除文件Main.storyboard">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac Safari浏览器调试h5">
-<meta property="og:url" content="https://developeng.com/2022/02/22/iOS%E5%BC%80%E5%8F%91-Mac%20Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95h5/index.html">
+<meta property="og:title" content="Xcode14新建swift纯代码工程">
+<meta property="og:url" content="https://developeng.com/2023/09/25/iOS%E5%BC%80%E5%8F%91-2023-09-25-Xcode14%E6%96%B0%E5%BB%BASwift%E5%B7%A5%E7%A8%8B/index.html">
 <meta property="og:site_name" content="developeng的博客">
-<meta property="og:description" content="1.手机设置设置 -&gt; Safari浏览器 -&gt; 高级 -&gt; 开启web检查器  2.Mac设置Safari浏览器 -&gt; 偏好设置 -&gt; 高级 —&gt; 勾选“在菜单栏中显示“开发”菜单”  3.连接-调试1.用数据连接手机和电脑 2.打开iPhone手机上的网页 3.打开Mac的safari浏览器，选择开发 -&gt; 手机名称 -&gt; 选择正在调试的网页 即">
+<meta property="og:description" content="一.保留SceneDelegate （适用于iOS13以上）1.删除文件Main.storyboard">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-22T05:29:29.000Z">
-<meta property="article:modified_time" content="2022-02-22T10:10:24.601Z">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB80e10b14c8b5b1d9034fd224ab9f218e?method=download&shareKey=4a17488422c45fa7be44a183a2f0a8ad">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB17490cd9b01ddf28661af772ee8bfd01?method=download&shareKey=e0c80f2347ffb80921a4b051c1da0550">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB821ae71df9e5f60ebb6dfb013c6ca3e0?method=download&shareKey=75dca23309bc16a6e0678102de4ee0da">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB51061b5828106338a6239683676f4ec8?method=download&shareKey=8cad217412370fe973e98e7d5b3ced87">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBf051ea80702ed542d92c1b1fd0b6a304?method=download&shareKey=01c6f315accd63a8115602ee4f4aaefd">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB40cc1cb678d5635339ae71fc4ddfaf49?method=download&shareKey=deeae92ec94832149ecf21cf171d1772">
+<meta property="article:published_time" content="2023-09-25T08:12:29.000Z">
+<meta property="article:modified_time" content="2024-03-14T09:29:31.732Z">
 <meta property="article:author" content="developeng">
-<meta property="article:tag" content="iOS">
-<meta property="article:tag" content="H5">
+<meta property="article:tag" content="OC">
+<meta property="article:tag" content="Swift">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB80e10b14c8b5b1d9034fd224ab9f218e?method=download&shareKey=4a17488422c45fa7be44a183a2f0a8ad">
 
 
-<link rel="canonical" href="https://developeng.com/2022/02/22/iOS%E5%BC%80%E5%8F%91-Mac%20Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95h5/">
+<link rel="canonical" href="https://developeng.com/2023/09/25/iOS%E5%BC%80%E5%8F%91-2023-09-25-Xcode14%E6%96%B0%E5%BB%BASwift%E5%B7%A5%E7%A8%8B/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://developeng.com/2022/02/22/iOS%E5%BC%80%E5%8F%91-Mac%20Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95h5/","path":"2022/02/22/iOS开发-Mac Safari浏览器调试h5/","title":"Mac Safari浏览器调试h5"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://developeng.com/2023/09/25/iOS%E5%BC%80%E5%8F%91-2023-09-25-Xcode14%E6%96%B0%E5%BB%BASwift%E5%B7%A5%E7%A8%8B/","path":"2023/09/25/iOS开发-2023-09-25-Xcode14新建Swift工程/","title":"Xcode14新建swift纯代码工程"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Mac Safari浏览器调试h5 | developeng的博客</title>
+<title>Xcode14新建swift纯代码工程 | developeng的博客</title>
   
 
 
@@ -123,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E6%89%8B%E6%9C%BA%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">1.手机设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Mac%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">2.Mac设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E8%BF%9E%E6%8E%A5-%E8%B0%83%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">3.连接-调试</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80-%E4%BF%9D%E7%95%99SceneDelegate-%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8EiOS13%E4%BB%A5%E4%B8%8A%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">一.保留SceneDelegate （适用于iOS13以上）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C-%E4%B8%8D%E4%BF%9D%E7%95%99SceneDelegate%EF%BC%88%E5%8F%AF%E7%94%A8%E4%BA%8E%E9%80%82%E9%85%8DiOS13%E4%BB%A5%E4%B8%8B%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">二.不保留SceneDelegate（可用于适配iOS13以下）</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -196,7 +203,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://developeng.com/2022/02/22/iOS%E5%BC%80%E5%8F%91-Mac%20Safari%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95h5/">
+    <link itemprop="mainEntityOfPage" href="https://developeng.com/2023/09/25/iOS%E5%BC%80%E5%8F%91-2023-09-25-Xcode14%E6%96%B0%E5%BB%BASwift%E5%B7%A5%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -209,7 +216,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Mac Safari浏览器调试h5
+          Xcode14新建swift纯代码工程
         </h1>
 
         <div class="post-meta-container">
@@ -219,9 +226,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-02-22 13:29:29 / 修改时间：18:10:24" itemprop="dateCreated datePublished" datetime="2022-02-22T13:29:29+08:00">2022-02-22</time>
+      <time title="创建时间：2023-09-25 16:12:29" itemprop="dateCreated datePublished" datetime="2023-09-25T16:12:29+08:00">2023-09-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-14 17:29:31" itemprop="dateModified" datetime="2024-03-14T17:29:31+08:00">2024-03-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -230,10 +243,6 @@
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/iOS/H5/" itemprop="url" rel="index"><span itemprop="name">H5</span></a>
         </span>
     </span>
 
@@ -247,13 +256,48 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h5 id="1-手机设置"><a href="#1-手机设置" class="headerlink" title="1.手机设置"></a>1.手机设置</h5><pre><code>设置 -&gt; Safari浏览器 -&gt; 高级 -&gt; 开启web检查器
+        <h4 id="一-保留SceneDelegate-（适用于iOS13以上）"><a href="#一-保留SceneDelegate-（适用于iOS13以上）" class="headerlink" title="一.保留SceneDelegate （适用于iOS13以上）"></a>一.保留SceneDelegate （适用于iOS13以上）</h4><p>1.删除文件Main.storyboard</p>
+<span id="more"></span>
+
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB80e10b14c8b5b1d9034fd224ab9f218e?method=download&shareKey=4a17488422c45fa7be44a183a2f0a8ad" alt="image"></p>
+<p>2.删除info.plish文件中的入口</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB17490cd9b01ddf28661af772ee8bfd01?method=download&shareKey=e0c80f2347ffb80921a4b051c1da0550" alt="image"></p>
+<p>3.删除info中的入口</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB821ae71df9e5f60ebb6dfb013c6ca3e0?method=download&shareKey=75dca23309bc16a6e0678102de4ee0da" alt="image"></p>
+<p>4.纯代码设置入口</p>
+<p>&#x9;    在SceneDelegate文件中修改一下代码</p>
+<pre><code>func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) &#123;
+    if let windowSence = scene as? UIWindowScene  &#123;
+        self.window = UIWindow(windowScene: windowSence)
+        let vc = ViewController()
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+    &#125;
+&#125;
 </code></pre>
-<h5 id="2-Mac设置"><a href="#2-Mac设置" class="headerlink" title="2.Mac设置"></a>2.Mac设置</h5><pre><code>Safari浏览器 -&gt; 偏好设置 -&gt; 高级 —&gt; 勾选“在菜单栏中显示“开发”菜单”
-</code></pre>
-<h5 id="3-连接-调试"><a href="#3-连接-调试" class="headerlink" title="3.连接-调试"></a>3.连接-调试</h5><pre><code>1.用数据连接手机和电脑
-2.打开iPhone手机上的网页
-3.打开Mac的safari浏览器，选择开发 -&gt; 手机名称 -&gt; 选择正在调试的网页 即可
+<h4 id="二-不保留SceneDelegate（可用于适配iOS13以下）"><a href="#二-不保留SceneDelegate（可用于适配iOS13以下）" class="headerlink" title="二.不保留SceneDelegate（可用于适配iOS13以下）"></a>二.不保留SceneDelegate（可用于适配iOS13以下）</h4><p>1.删除文件Main.storyboard 和 SceneDelegate文件</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB51061b5828106338a6239683676f4ec8?method=download&shareKey=8cad217412370fe973e98e7d5b3ced87" alt="image"></p>
+<p>2.删除info.plish文件中的入口</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEBf051ea80702ed542d92c1b1fd0b6a304?method=download&shareKey=01c6f315accd63a8115602ee4f4aaefd" alt="image"></p>
+<p>3.删除info中的入口</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB40cc1cb678d5635339ae71fc4ddfaf49?method=download&shareKey=deeae92ec94832149ecf21cf171d1772" alt="image"></p>
+<p>4.纯代码设置入口</p>
+<p>&#x9;    在AppDelegate文件中修改一下代码</p>
+<pre><code>@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate &#123;
+       
+    var window: UIWindow?
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool &#123;
+                
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        let vc = ViewController()
+        self.window?.rootViewController = vc
+        window?.backgroundColor = UIColor.white
+        window?.makeKeyAndVisible()        
+        return true
+    &#125;
+&#125;
 </code></pre>
 
     </div>
@@ -264,22 +308,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/iOS/" rel="tag"># iOS</a>
-              <a href="/tags/H5/" rel="tag"># H5</a>
+              <a href="/tags/OC/" rel="tag"># OC</a>
+              <a href="/tags/Swift/" rel="tag"># Swift</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/02/03/%E7%8E%AF%E5%A2%83-2022.02.03-Mac%E9%85%8D%E7%BD%AEjenkins%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85ipa%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%92%B2%E5%85%AC%E8%8B%B1/" rel="prev" title="Mac配置jenkins自动打包ipa并上传蒲公英">
-                  <i class="fa fa-chevron-left"></i> Mac配置jenkins自动打包ipa并上传蒲公英
+                <a href="/2022/05/31/iOS%E5%BC%80%E5%8F%91-2022-05-31-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%9B%86%E6%88%90/" rel="prev" title="iOS开发-微信支付集成">
+                  <i class="fa fa-chevron-left"></i> iOS开发-微信支付集成
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/02/22/Flutter%E5%BC%80%E5%8F%91-2022.02.22-Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="next" title="Flutter环境配置">
-                  Flutter环境配置 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
