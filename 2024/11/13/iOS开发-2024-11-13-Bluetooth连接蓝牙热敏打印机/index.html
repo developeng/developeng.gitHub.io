@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/developeng/DPPrinter/blob/main/bill.png?raw=true">
 <meta property="article:published_time" content="2024-11-13T02:30:30.000Z">
-<meta property="article:modified_time" content="2024-11-13T03:18:40.573Z">
+<meta property="article:modified_time" content="2024-11-13T07:32:07.847Z">
 <meta property="article:author" content="developeng">
 <meta property="article:tag" content="OC">
 <meta property="article:tag" content="Swift">
@@ -223,7 +223,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-11-13 10:30:30 / 修改时间：11:18:40" itemprop="dateCreated datePublished" datetime="2024-11-13T10:30:30+08:00">2024-11-13</time>
+      <time title="创建时间：2024-11-13 10:30:30 / 修改时间：15:32:07" itemprop="dateCreated datePublished" datetime="2024-11-13T10:30:30+08:00">2024-11-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -301,7 +301,10 @@ DPBLEManager.shared().startCheckStatus &#123; central in
 </ul>
 </li>
 </ol>
-<h5 id="3、搜索可用蓝牙外设"><a href="#3、搜索可用蓝牙外设" class="headerlink" title="3、搜索可用蓝牙外设"></a><strong>3、搜索可用蓝牙外设</strong></h5><pre><code>// 开始扫描蓝牙
+<h5 id="3、搜索可用蓝牙外设"><a href="#3、搜索可用蓝牙外设" class="headerlink" title="3、搜索可用蓝牙外设"></a><strong>3、搜索可用蓝牙外设</strong></h5><pre><code>// 热敏打印机的蓝牙服务ID， 一般为 18F0 ，具体根据打印机文档确定
+var printerServiceUUIDs:Array&lt;CBUUID&gt; = [CBUUID(string: &quot;18F0&quot;)]
+
+// 开始扫描蓝牙
 DPBLEManager.shared().scan(self.printerServiceUUIDs) &#123; central, peripheral, advertisementData, rssi in
        // 打印机名称
        let deviceName = peripheral.name ?? &quot;Unknown Device&quot;
